@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
-import { BrowserRouter as Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+//import { BrowserRouter as useNavigate } from "react-router-dom";
 export default function Navbar() {
   return (
     <div
@@ -14,17 +15,26 @@ export default function Navbar() {
       </div>
       <div style={{ display: "flex" }}>
         <div style={{ marginRight: "10px" }}>
-          <Link to="">
-            <Button variant="contained" color="primary">
-              Login
-            </Button>
-          </Link>
-        </div>
-        <Link to="/signup">
-          <Button variant="contained" color="primary">
-            SignUp
+          <Button
+            onClick={() => {
+              window.location.href = "https://localhost:5173/signin";
+            }}
+            variant="contained"
+            color="primary"
+          >
+            Login
           </Button>
-        </Link>
+        </div>
+
+        <Button
+          onClick={() => {
+            window.location.href = "https://localhost:5173/signup";
+          }}
+          variant="contained"
+          color="primary"
+        >
+          SignUp
+        </Button>
       </div>
     </div>
   );

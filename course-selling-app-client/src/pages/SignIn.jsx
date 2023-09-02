@@ -1,4 +1,3 @@
-// import React from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 export const SignIn = () => {
@@ -9,7 +8,7 @@ export const SignIn = () => {
           display: "grid",
         }}
       >
-        <h1>Continue your learning, Login</h1>
+        <h1>Continue your learning, </h1>
         <TextField
           margin="normal"
           required
