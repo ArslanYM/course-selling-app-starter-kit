@@ -3,14 +3,17 @@ import { useState } from "react";
 export const AddCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [imageLink, setImageLink] = useState("");
+  const [price, setPrice] = useState(0);
+
   function handleClick() {
     fetch("http://localhost:3000/admin/courses", {
       method: "POST",
       body: JSON.stringify({
         title,
         description,
-        price: "100$",
-        imageLink: "https://somelink.com",
+        price: price,
+        imageLink: imageLink,
         published: "true",
       }),
       headers: {
@@ -46,6 +49,24 @@ export const AddCourse = () => {
             required
             fullWidth
             label="Description"
+          />
+          <TextField
+            onChange={(e) => {
+              setImageLink(e.target.value);
+            }}
+            margin="normal"
+            required
+            fullWidth
+            label="Image link"
+          />
+          <TextField
+            onChange={(e) => {
+              setPrice(e.target.value);
+            }}
+            margin="normal"
+            required
+            fullWidth
+            label="Price in $"
           />
           <Button
             type="submit"

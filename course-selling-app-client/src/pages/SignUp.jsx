@@ -7,11 +7,12 @@ export const SignUp = () => {
   const [password, setPassword] = useState("");
 
   function handleSignUp() {
+    console.log("sending fetch req");
     fetch("http://localhost:3000/admin/signup", {
       method: "POST",
       body: JSON.stringify({
-        email,
-        password,
+        username: email,
+        password: password,
       }),
       headers: {
         "Content-type": "application/json",

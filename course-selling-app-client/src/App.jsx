@@ -7,6 +7,7 @@ import { SignUp } from "./pages/SignUp";
 import { SignIn } from "./pages/SignIn";
 import { HomePage } from "./pages/HomePage";
 import { AddCourse } from "./pages/AddCourse";
+import { Courses } from "./pages/Courses";
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
         width: "100vw",
       }}
     >
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
+          <Route path="/courses" element={<Courses />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />

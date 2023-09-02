@@ -2,7 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const app = express();
-var cors = require("cors");
+const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
@@ -13,15 +13,15 @@ let COURSES = [];
 
 // Read data from file, or initialize to empty array if file does not exist
 try {
-  ADMINS = JSON.parse(fs.readFileSync("./admins.json", "utf8"));
-  USERS = JSON.parse(fs.readFileSync("./users.json", "utf8"));
-  COURSES = JSON.parse(fs.readFileSync("./courses.json", "utf8"));
+  ADMINS = JSON.parse(fs.readFileSync("admins.json", "utf8"));
+  USERS = JSON.parse(fs.readFileSync("users.json", "utf8"));
+  COURSES = JSON.parse(fs.readFileSync("courses.json", "utf8"));
 } catch {
   ADMINS = [];
   USERS = [];
   COURSES = [];
 }
-console.log(ADMINS);
+// console.log(ADMINS);
 
 const SECRET = "my-secret-key";
 
@@ -42,6 +42,7 @@ const authenticateJwt = (req, res, next) => {
 };
 
 // Admin routes
+//works
 app.post("/admin/signup", (req, res) => {
   const { username, password } = req.body;
   const admin = ADMINS.find((a) => a.username === username);
@@ -51,7 +52,7 @@ app.post("/admin/signup", (req, res) => {
   } else {
     const newAdmin = { username, password };
     ADMINS.push(newAdmin);
-    fs.writeFileSync("./admins.json ", JSON.stringify(ADMINS));
+    fs.writeFileSync("admins.json", JSON.stringify(ADMINS));
     const token = jwt.sign({ username, role: "admin" }, SECRET, {
       expiresIn: "1h",
     });
@@ -59,6 +60,7 @@ app.post("/admin/signup", (req, res) => {
   }
 });
 
+//works
 app.post("/admin/login", (req, res) => {
   const { username, password } = req.headers;
   const admin = ADMINS.find(
@@ -74,19 +76,21 @@ app.post("/admin/login", (req, res) => {
   }
 });
 
+//  works
 app.post("/admin/courses", authenticateJwt, (req, res) => {
   const course = req.body;
   course.id = COURSES.length + 1;
   COURSES.push(course);
-  fs.writeFileSync("./courses.json", JSON.stringify(COURSES));
+  fs.writeFileSync("courses.json", JSON.stringify(COURSES));
   res.json({ message: "Course created successfully", courseId: course.id });
 });
 
+//works
 app.put("/admin/courses/:courseId", authenticateJwt, (req, res) => {
   const course = COURSES.find((c) => c.id === parseInt(req.params.courseId));
   if (course) {
     Object.assign(course, req.body);
-    fs.writeFileSync("./courses.json", JSON.stringify(COURSES));
+    fs.writeFileSync("courses.json", JSON.stringify(COURSES));
     res.json({ message: "Course updated successfully" });
   } else {
     res.status(404).json({ message: "Course not found" });
@@ -106,7 +110,7 @@ app.post("/users/signup", (req, res) => {
   } else {
     const newUser = { username, password };
     USERS.push(newUser);
-    fs.writeFileSync("./users.json", JSON.stringify(USERS));
+    fs.writeFileSync("users.json", JSON.stringify(USERS));
     const token = jwt.sign({ username, role: "user" }, SECRET, {
       expiresIn: "1h",
     });
@@ -142,7 +146,7 @@ app.post("/users/courses/:courseId", authenticateJwt, (req, res) => {
         user.purchasedCourses = [];
       }
       user.purchasedCourses.push(course);
-      fs.writeFileSync("./users.json", JSON.stringify(USERS));
+      fs.writeFileSync("users.json", JSON.stringify(USERS));
       res.json({ message: "Course purchased successfully" });
     } else {
       res.status(403).json({ message: "User not found" });
