@@ -8,6 +8,7 @@ import { SignIn } from "./pages/SignIn";
 import { HomePage } from "./pages/HomePage";
 import { AddCourse } from "./pages/AddCourse";
 import { Courses } from "./pages/Courses";
+import { Course } from "./pages/Course";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          <Route path="/courses/:courseId" element={<Course />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
