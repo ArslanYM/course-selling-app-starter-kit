@@ -22,64 +22,64 @@ export const SignUp = () => {
     }).then((res) => {
       res.json().then((data) => {
         localStorage.setItem("token", data.token);
-        alert("Admin has been signed up")
-        navigate('/courses')
+        alert("Admin has been signed up");
+        window.location = "/";
+        // navigate('/courses')
       });
     });
   }
   return (
     <div
-    style={{
-      paddingTop: "100px",
-      // alignContent:"center",
-      justifyContent: "center",
-      display: "flex"
-    }}
-    >
-      <div 
       style={{
-        maxWidth:"70%",
-        maxheight:"70"
+        paddingTop: "100px",
+        // alignContent:"center",
+        justifyContent: "center",
+        display: "flex",
       }}
+    >
+      <div
+        style={{
+          maxWidth: "70%",
+          maxheight: "70",
+        }}
       >
-      <Card>
-      <h1>Welcome to Course App</h1>
-        <TextField
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-        />
-        <TextField
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-        <Button
-          onClick={handleSignUp}
-          type="submit"
-          fullWidth
-          variant="contained"
-        >
-          Sign Up
-        </Button>
-      </Card>
-        
+        <Card>
+          <h1>Welcome to Course App</h1>
+          <TextField
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <Button
+            onClick={handleSignUp}
+            type="submit"
+            fullWidth
+            variant="contained"
+          >
+            Sign Up
+          </Button>
+        </Card>
       </div>
     </div>
   );

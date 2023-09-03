@@ -60,6 +60,13 @@ app.post("/admin/signup", (req, res) => {
   }
 });
 
+//for rendering login logout in react app
+app.get("/admin/me", authenticateJwt, (req, res) => {
+  res.json({
+    username: req.user.username,
+  });
+});
+
 //works
 app.post("/admin/login", (req, res) => {
   const { username, password } = req.headers;
@@ -100,7 +107,6 @@ app.put("/admin/courses/:courseId", authenticateJwt, (req, res) => {
 app.get("/admin/courses", authenticateJwt, (req, res) => {
   res.json({ courses: COURSES });
 });
-
 
 // User routes
 app.post("/users/signup", (req, res) => {
