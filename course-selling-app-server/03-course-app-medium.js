@@ -101,6 +101,7 @@ app.get("/admin/courses", authenticateJwt, (req, res) => {
   res.json({ courses: COURSES });
 });
 
+
 // User routes
 app.post("/users/signup", (req, res) => {
   const { username, password } = req.body;

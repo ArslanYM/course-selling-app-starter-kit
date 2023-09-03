@@ -1,10 +1,12 @@
 // import React from "react";
 import { useState } from "react";
 import { TextField } from "@mui/material";
-import { Button } from "@mui/material";
+import { Button, Card } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function handleSignUp() {
     console.log("sending fetch req");
@@ -20,13 +22,28 @@ export const SignUp = () => {
     }).then((res) => {
       res.json().then((data) => {
         localStorage.setItem("token", data.token);
+        alert("Admin has been signed up")
+        navigate('/courses')
       });
     });
   }
   return (
-    <div>
-      <div>
-        <h1>Welcome to Course App</h1>
+    <div
+    style={{
+      paddingTop: "100px",
+      // alignContent:"center",
+      justifyContent: "center",
+      display: "flex"
+    }}
+    >
+      <div 
+      style={{
+        maxWidth:"70%",
+        maxheight:"70"
+      }}
+      >
+      <Card>
+      <h1>Welcome to Course App</h1>
         <TextField
           onChange={(e) => {
             setEmail(e.target.value);
@@ -61,6 +78,8 @@ export const SignUp = () => {
         >
           Sign Up
         </Button>
+      </Card>
+        
       </div>
     </div>
   );

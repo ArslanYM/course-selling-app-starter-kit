@@ -1,4 +1,4 @@
-import { TextField, Button, Typography, Box } from "@mui/material";
+import { TextField, Button, Typography, Card } from "@mui/material";
 import { useState } from "react";
 export const AddCourse = () => {
   const [title, setTitle] = useState("");
@@ -22,13 +22,13 @@ export const AddCourse = () => {
       },
     }).then((res) => {
       res.json().then((data) => {
-        localStorage.setItem("token", data.token);
+        console.log(data);
       });
     });
   }
   return (
     <div>
-      <Box component="form">
+      <Card variant="outlined">
         <div>
           <Typography variant="h4">Add the following details </Typography>
           <TextField
@@ -77,7 +77,7 @@ export const AddCourse = () => {
             Add Course{" "}
           </Button>
         </div>
-      </Box>
+      </Card>
     </div>
   );
 };
