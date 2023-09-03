@@ -62,7 +62,7 @@ app.post("/admin/signup", (req, res) => {
 
 //for rendering login logout in react app
 app.get("/admin/me", authenticateJwt, (req, res) => {
-  res.json({
+  res.json({  
     username: req.user.username,
   });
 });
