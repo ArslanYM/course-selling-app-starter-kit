@@ -3,12 +3,12 @@
 import "./App.css";
 import Navbar from "./components/Navbar.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { SignUp } from "./pages/SignUp";
-import { SignIn } from "./pages/SignIn";
-import { HomePage } from "./pages/HomePage";
-import { AddCourse } from "./pages/AddCourse";
-import { Courses } from "./pages/Courses";
-import { Course } from "./pages/Course";
+import { SignUp } from "./pages/admin/SignUp";
+import { SignIn } from "./pages/admin/SignIn";
+import { HomePage } from "./pages/admin/HomePage";
+import { AddCourse } from "./pages/admin/AddCourse";
+import { Courses } from "./pages/admin/Courses";
+import { Course } from "./pages/admin/Course";
 
 function App() {
   return (

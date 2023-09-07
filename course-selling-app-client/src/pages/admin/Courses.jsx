@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CourseCard } from "../components/CourseCard";
+import { CourseCard } from "../../components/CourseCard";
 export const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

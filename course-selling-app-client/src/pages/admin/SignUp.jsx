@@ -24,7 +24,7 @@ export const SignUp = () => {
         localStorage.setItem("token", data.token);
         alert("Admin has been signed up");
         window.location = "/";
-        // navigate('/courses')
+        navigate("/courses");
       });
     });
   }

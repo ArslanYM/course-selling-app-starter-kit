@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { CourseCard } from "../components/CourseCard";
+import { CourseCard } from "../../components/CourseCard";
 import { useParams } from "react-router-dom";
-import { UpdateCourse } from "../components/UpdateCourse";
+import { UpdateCourse } from "../../components/UpdateCourse";
 
 export const Course = () => {
   const { courseId } = useParams();
