@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { CourseCard } from "../../components/CourseCard";
+import { Container, Typography, Grid } from "@mui/material";
 export const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +15,7 @@ export const Courses = () => {
       res.json().then((data) => {
         setIsLoading(false);
         setCourses(data.courses);
+        console.log(courses);
       });
     });
   }, []);
@@ -22,20 +24,27 @@ export const Courses = () => {
       {isLoading ? (
         <div>
           <h1>Loading.......</h1>
+          {console.log("Please sign in ")}
         </div>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {courses.map((course, index) => {
-            return <CourseCard key={index} course={course} />;
-          })}
+        <div>
+          <Container maxWidth="lg">
+            <Typography
+              variant="h4"
+              align="center"
+              style={{ marginTop: "2rem" }}
+            >
+              Welcome to the Course Selling App
+            </Typography>
+            <Grid container spacing={3} style={{ marginTop: "2rem" }}>
+              {courses.map((course, index) => {
+                return <CourseCard key={index} course={course} />;
+              })}
+            </Grid>
+          </Container>
         </div>
       )}
     </>
   );
 };
+``;
