@@ -34,7 +34,7 @@ export const Courses = () => {
               align="center"
               style={{ marginTop: "2rem" }}
             >
-              Welcome to the Course Selling App
+              Welcome to the courses section , Here are some of our best courses
             </Typography>
             <Grid container spacing={3} style={{ marginTop: "2rem" }}>
               {courses.map((course, index) => {

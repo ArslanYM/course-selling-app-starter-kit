@@ -1,4 +1,4 @@
-import { TextField, Button, Typography, Card } from "@mui/material";
+import { TextField, Button, Typography, Container, Grid } from "@mui/material";
 import { useState } from "react";
 export const AddCourse = () => {
   const [title, setTitle] = useState("");
@@ -28,56 +28,68 @@ export const AddCourse = () => {
   }
   return (
     <div>
-      <Card variant="outlined">
-        <div>
-          <Typography variant="h4">Add the following details </Typography>
-          <TextField
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-            margin="normal"
-            required
-            fullWidth
-            label="Title"
-            autoFocus
-          />
-          <TextField
-            onChange={(e) => {
-              setDescription(e.target.value);
-            }}
-            margin="normal"
-            required
-            fullWidth
-            label="Description"
-          />
-          <TextField
-            onChange={(e) => {
-              setImageLink(e.target.value);
-            }}
-            margin="normal"
-            required
-            fullWidth
-            label="Image link"
-          />
-          <TextField
-            onChange={(e) => {
-              setPrice(e.target.value);
-            }}
-            margin="normal"
-            required
-            fullWidth
-            label="Price in $"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            onClick={handleClick}
-          >
-            Add Course{" "}
-          </Button>
+      <Container maxWidth="xs">
+        <div style={{ marginTop: "2rem" }}>
+          <Typography variant="h4" align="center">
+            Add a new course
+          </Typography>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Title"
+                variant="outlined"
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+                fullWidth
+                label="Description"
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                onChange={(e) => {
+                  setImageLink(e.target.value);
+                }}
+                fullWidth
+                type="url"
+                label="Image link"
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+                fullWidth
+                label="Price in $"
+                type="number"
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                onClick={handleClick}
+              >
+                Add course
+              </Button>
+            </Grid>
+          </Grid>
         </div>
-      </Card>
+      </Container>
     </div>
   );
 };

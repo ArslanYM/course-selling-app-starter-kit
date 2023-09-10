@@ -1,4 +1,4 @@
-import { Card, Button, TextField } from "@mui/material";
+import { Container, Typography, Grid, Button, TextField } from "@mui/material";
 import { useState } from "react";
 export const UpdateCourse = (props) => {
   const [title, setTitle] = useState("");
@@ -40,53 +40,52 @@ export const UpdateCourse = (props) => {
     });
   }
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <Card
-        style={{
-          width: 400,
-          padding: 20,
-        }}
-        variant="elevation"
-      >
-        <TextField
-          margin="normal"
-          required
-          label="Title"
-          autoFocus
-          fullWidth
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <TextField
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-          margin="none"
-          fullWidth
-          required
-          label="description"
-          autoFocus
-        />
-        <TextField
-          onChange={(e) => {
-            setImageLink(e.target.value);
-          }}
-          margin="normal"
-          required
-          label="Image Link"
-          fullWidth
-          autoFocus
-        />
-        <Button
-          onClick={handleUpdate}
-          type="submit"
-          variant="contained"
-          fullWidth
-        >
-          Update Course
-        </Button>
-      </Card>
+    <div>
+      <Container maxWidth="xs">
+        <div>
+          <Typography variant="h4" align="center">
+            Update Course
+          </Typography>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="New Title"
+                variant="outlined"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="New Description"
+                variant="outlined"
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="New Image Link"
+                variant="outlined"
+                onChange={(e) => setImageLink(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                onClick={handleUpdate}
+                fullWidth
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Sign Up
+              </Button>
+            </Grid>
+          </Grid>
+        </div>
+      </Container>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { CourseCard } from "../../components/CourseCard";
 import { useParams } from "react-router-dom";
 import { UpdateCourse } from "../../components/UpdateCourse";
+import { Container } from "@mui/material";
 
 export const Course = () => {
   const { courseId } = useParams();
@@ -35,14 +36,15 @@ export const Course = () => {
     );
   }
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <CourseCard course={course} />
-      <UpdateCourse course={course} setCourses={setCourses} courses={courses} />
+    <div>
+      <Container maxWidth="xs">
+        <CourseCard course={course} />
+        <UpdateCourse
+          course={course}
+          setCourses={setCourses}
+          courses={courses}
+        />
+      </Container>
     </div>
   );
 };
