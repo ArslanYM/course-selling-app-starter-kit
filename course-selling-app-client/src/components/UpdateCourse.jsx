@@ -80,7 +80,7 @@ export const UpdateCourse = (props) => {
                 color="primary"
                 type="submit"
               >
-                Sign Up
+                Update Course
               </Button>
             </Grid>
           </Grid>

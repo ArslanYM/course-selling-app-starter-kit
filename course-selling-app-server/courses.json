@@ -1,7 +1,7 @@
 [
   {
-    "title": "newest title ",
-    "description": "new descrioption",
+    "title": "Udemy Course",
+    "description": "This is the new Descirption of the course",
     "price": 100,
     "imageLink": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
     "published": "true",

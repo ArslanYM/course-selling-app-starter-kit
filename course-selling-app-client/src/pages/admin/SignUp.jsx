@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import { Button, Typography, Grid, Container } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   function handleSignUp() {
-    console.log("sending fetch req");
+    console.log("sending signup req");
     fetch("http://localhost:3000/admin/signup", {
       method: "POST",
       body: JSON.stringify({
@@ -22,7 +22,7 @@ export const SignUp = () => {
     }).then((res) => {
       res.json().then((data) => {
         localStorage.setItem("token", data.token);
-        navigate("/courses");
+        window.location = "/courses";
       });
     });
   }
@@ -38,6 +38,8 @@ export const SignUp = () => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  type="email"
+                  required
                   fullWidth
                   label="Email"
                   variant="outlined"
@@ -46,6 +48,7 @@ export const SignUp = () => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  required
                   fullWidth
                   label="Password"
                   type="password"
