@@ -1,30 +1,29 @@
 import { TextField, Button, Typography, Container, Grid } from "@mui/material";
 import { useState } from "react";
+import axios from "axios";
 export const AddCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [price, setPrice] = useState(0);
 
-  function handleClick() {
-    fetch("http://localhost:3000/admin/courses", {
-      method: "POST",
-      body: JSON.stringify({
+  async function handleClick() {
+    await axios.post(
+      "http://localhost:3000/admin/courses",
+      {
         title,
         description,
         price: price,
         imageLink: imageLink,
         published: "true",
-      }),
-      headers: {
-        "Content-type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
       },
-    }).then((res) => {
-      res.json().then((data) => {
-        console.log(data);
-      });
-    });
+      {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    );
   }
   return (
     <div>

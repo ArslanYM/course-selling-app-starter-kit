@@ -2,29 +2,28 @@
 import { useState } from "react";
 import { TextField } from "@mui/material";
 import { Button, Typography, Grid, Container } from "@mui/material";
+import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const navigate = useNavigate();
 
-  function handleSignUp() {
-    console.log("sending signup req");
-    fetch("http://localhost:3000/admin/signup", {
-      method: "POST",
-      body: JSON.stringify({
+  async function handleSignUp() {
+    const response = await axios.post(
+      "http://localhost:3000/admin/signup",
+      {
         username: email,
         password: password,
-      }),
-      headers: {
-        "Content-type": "application/json",
       },
-    }).then((res) => {
-      res.json().then((data) => {
-        localStorage.setItem("token", data.token);
-        window.location = "/courses";
-      });
-    });
+      {
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    );
+    localStorage.setItem("token", response.data.token);
+    window.location = "/courses";
   }
   return (
     <>

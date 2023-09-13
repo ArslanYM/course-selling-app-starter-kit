@@ -6,6 +6,7 @@ import {
   Grid,
   CardContent,
 } from "@mui/material";
+// import { useEffect } from "react";
 export const HomePage = () => {
   const courses = [
     {
@@ -50,6 +51,7 @@ export const HomePage = () => {
       description: "Description for Course 1",
       price: "$99.99",
     },
+
     // Add more course data as needed
   ];
   return (
