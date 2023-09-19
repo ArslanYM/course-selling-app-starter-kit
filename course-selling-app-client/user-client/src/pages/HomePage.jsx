@@ -1,6 +1,8 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="text-gray-400 bg-gray-900 body-font">
@@ -16,11 +18,21 @@ export const HomePage = () => {
               truffaut hexagon try-hard chambray.
             </p>
             <div className="flex justify-center">
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                Button
+              <button
+                className="mr-5 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                onClick={() => {
+                  navigate("signin");
+                }}
+              >
+                SignIn
               </button>
-              <button className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
-                Button
+              <button
+                className=" mr-5 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                onClick={() => {
+                  navigate("signup");
+                }}
+              >
+                SignUp
               </button>
             </div>
           </div>
