@@ -18,8 +18,6 @@ Welcome to the Course Selling App! This is a web application built with React fo
 - Browse a diverse selection of courses.
 - Search and filter courses by category, level, and more.
 - View course details, including descriptions, instructors, and pricing.
-- Add courses to your cart.
-- Checkout and make secure payments.
 - User authentication and profile management.
 - Admin panel for course and user management.
 - Responsive design for seamless mobile and desktop experiences.
