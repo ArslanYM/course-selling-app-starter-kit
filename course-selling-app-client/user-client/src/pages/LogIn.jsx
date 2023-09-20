@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SignUp = () => {
+export const LogIn = () => {
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
@@ -34,7 +34,7 @@ export const SignUp = () => {
                 placeholder="******************"
               />
               <p class="text-red-500 text-xs italic">
-                Please choose a password.
+                Please enter your password.
               </p>
             </div>
             <div class="flex items-center justify-between">
@@ -42,7 +42,7 @@ export const SignUp = () => {
                 class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
-                Sign Up
+                Log In
               </button>
             </div>
           </form>
