@@ -1,11 +1,11 @@
 import React from "react";
 
-export const LogIn = () => {
+export const SignUp = () => {
   return (
-    <section className="text-gray-400 bg-gray-900 body-font">
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <section className="text-gray-400 bg-gray-900 body-font ">
+      <div className="container mx-auto flex px-5 py-24 md:flex-col flex-col items-center text">
         <div class="w-full max-w-xs">
-          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto max-w-sm">
             <div class="mb-4">
               <label
                 class="block text-gray-700 text-sm font-bold mb-2"
@@ -34,7 +34,7 @@ export const LogIn = () => {
                 placeholder="******************"
               />
               <p class="text-red-500 text-xs italic">
-                Please enter your password.
+                Please choose a password.
               </p>
             </div>
             <div class="flex items-center justify-between">
@@ -42,7 +42,7 @@ export const LogIn = () => {
                 class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
-                Log In
+                Sign Up
               </button>
             </div>
           </form>
