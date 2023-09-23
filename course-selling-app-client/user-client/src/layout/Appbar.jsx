@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export const Appbar = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   return (
     <>
