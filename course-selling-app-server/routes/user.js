@@ -4,16 +4,16 @@ const { authenticateJwt, SECRET } = require("../middleware/auth");
 const { User, Course, Admin } = require("../db");
 const router = express.Router();
 
-// router.get("/me", authenticateJwt, async (req, res) => {
-//   const user = await User.findOne({ username: req.user.username });
-//   if (!user) {
-//     res.status(403).json({ msg: "User doesnt exist" });
-//     return;
-//   }
-//   res.json({
-//     username: user.username,
-//   });
-// });
+router.get("/me", authenticateJwt, async (req, res) => {
+  const user = await User.findOne({ username: req.user.username });
+  if (!user) {
+    res.status(403).json({ msg: "User doesnt exist" });
+    return;
+  }
+  res.json({
+    username: user.username,
+  });
+});
 
 router.post("/signup", async (req, res) => {
   const { username, password } = req.body;

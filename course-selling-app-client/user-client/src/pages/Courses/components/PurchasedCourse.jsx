@@ -1,7 +1,4 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-export const CourseCard = (props) => {
-  const navigate = useNavigate();
+export const PurchasedCourse = (props) => {
   return (
     <>
       <div className="xl:w-1/4 md:w-1/2 p-4">
@@ -22,16 +19,8 @@ export const CourseCard = (props) => {
             {props.course.description}
           </p>
           <button
-            onClick={async () => {
-              const response = await axios.post(
-                `http://localhost:3000/users/courses/${props.course._id}`,
-                {
-                  headers: {
-                    Authorization: "Bearer " + localStorage.getItem("token"),
-                  },
-                }
-              );
-              console.log(response.data);
+            onClick={() => {
+              console.log("Buy course");
             }}
             className="text-md text-white font-medium title-font mb-4"
           >

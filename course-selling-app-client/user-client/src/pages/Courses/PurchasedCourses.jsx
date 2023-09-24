@@ -1,6 +1,21 @@
-import { CourseCard } from "./components/CourseCard";
+import axios from "axios";
+import { PurchasedCourse } from "./components/PurchasedCourse";
+import { BASE_URL } from "../../config";
+import { useEffect, useState } from "react";
 
 export const PurchasedCourses = () => {
+  const [purchasedCourses, setPurchasedCourses] = useState([]);
+  const init = async () => {
+    const response = await axios.get(`${BASE_URL}/user/purchasedcourses`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    setPurchasedCourses(response.data.purchasedCourses);
+  };
+  useEffect(() => {
+    init();
+  }, []);
   return (
     <>
       <section className="text-gray-400 body-font bg-gray-900">
@@ -20,7 +35,9 @@ export const PurchasedCourses = () => {
             </p>
           </div>
           <div className="flex flex-wrap -m-4">
-            <CourseCard />
+            {purchasedCourses.map((course, index) => {
+              return <PurchasedCourse course={course} key={index} />;
+            })}
           </div>
         </div>
       </section>
