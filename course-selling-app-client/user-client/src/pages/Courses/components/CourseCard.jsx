@@ -8,12 +8,8 @@ export const CourseCard = (props) => {
         <div className="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
           <img
             className="h-40 rounded w-full object-cover object-center mb-6"
-            src={
-              props.course.imageLink
-                ? props.course.imageLink
-                : "https://www.google.com/url?sa=i&url=https%3A%2F%2F1000logos.net%2Fcoursera-logo%2F&psig=AOvVaw2tppVtaVlS_dmG6_wXCv0s&ust=1695636284554000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLj5scv_woEDFQAAAAAdAAAAABAE"
-            }
-            alt="content"
+            src={props.course.imageLink ? props.course.imageLink : ""}
+            alt="courseImage"
           />
           <h3 className="tracking-widest text-indigo-400 text-xs font-medium title-font">
             {props.course.title}
@@ -24,14 +20,16 @@ export const CourseCard = (props) => {
           <button
             onClick={async () => {
               const response = await axios.post(
-                `http://localhost:3000/users/courses/${props.course._id}`,
+                `http://localhost:3000/user/courses/${props.course._id}`,
                 {
                   headers: {
+                    "Content-type": "application/json",
                     Authorization: "Bearer " + localStorage.getItem("token"),
                   },
                 }
               );
               console.log(response.data);
+              alert("Course bought successfully ");
             }}
             className="text-md text-white font-medium title-font mb-4"
           >

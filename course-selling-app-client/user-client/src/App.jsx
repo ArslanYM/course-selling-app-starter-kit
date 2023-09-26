@@ -7,7 +7,6 @@ import { LogIn } from "./pages/Register/LogIn";
 import { ErrorPage } from "./pages/More/ErrorPage";
 import { Footer } from "./layout/Footer";
 import { Courses } from "./pages/Courses/Courses";
-import { Course } from "./pages/Courses/Course";
 import { PurchasedCourses } from "./pages/Courses/PurchasedCourses";
 import { RecoilRoot, useSetRecoilState } from "recoil";
 import { userState } from "./store/atoms/user";
@@ -26,7 +25,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<LogIn />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/:courseId" element={<Course />} />
+
             <Route path="/purchasedcourses" element={<PurchasedCourses />} />
           </Routes>
           <Footer />

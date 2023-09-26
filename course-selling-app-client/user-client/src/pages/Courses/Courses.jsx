@@ -12,7 +12,7 @@ export const Courses = () => {
     });
 
     setCourses(response.data.courses);
-    
+    console.log(courses);
   };
 
   useEffect(() => {
