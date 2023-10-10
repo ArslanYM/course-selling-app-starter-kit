@@ -2,7 +2,7 @@ import {Grid, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 import {useRecoilValue} from "recoil";
-import { userEmailState } from "../store/selectors/userEmail"
+import { userEmailState } from "../store/selectors/userEmail.js"
 import {isUserLoading} from "../store/selectors/isUserLoading.js";
 
 export const Landing = () => {
