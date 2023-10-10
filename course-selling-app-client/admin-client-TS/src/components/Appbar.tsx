@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { isUserLoading } from "../store/selectors/isUserLoading";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../store/atoms/user.js";
-import { userEmailState } from "../store/selector s/userEmail";
+import { userEmailState } from "../store/selectors/userEmail";
 
-function Appbar({}) {
+function Appbar() {
   const navigate = useNavigate();
   const userLoading = useRecoilValue(isUserLoading);
   const userEmail = useRecoilValue(userEmailState);
